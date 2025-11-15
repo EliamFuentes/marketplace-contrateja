@@ -1,13 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import CategoryCard from "../../components/CategoryCard";
-import ServiceCard from "../../components/ServiceCard";
-import SearchBar from "../../components/SearchBar";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import CategoryCard from "../components/CategoryCard";
+import ServiceCard from "../components/ServiceCard";
+import SearchBar from "../components/SearchBar";
 import { CheckCircle2, Shield, Clock } from "lucide-react";
 
 //mocks temporários
-import { categories, services } from "../../data/mockData";
+import { categories, services } from "../data/mockData";
 
 export default function Home() {
     const navigate = useNavigate();
