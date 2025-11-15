@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import CategoryCard from "../../components/CategoryCard";
-//SearchBar
+import SearchBar from "../../components/SearchBar";
 import { CheckCircle2, Shield, Clock } from "lucide-react";
 
 //mocks temporários
@@ -34,7 +34,7 @@ export default function Home() {
                             Rápido, seguro e confiável.
                         </p>
 
-                        {/* <SearchBar /> */}
+                        <SearchBar />
 
                         {/* Features */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
