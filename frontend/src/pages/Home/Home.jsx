@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import CategoryCard from "../../components/CategoryCard";
 //SearchBar
 import { CheckCircle2, Shield, Clock } from "lucide-react";
 
@@ -105,16 +106,10 @@ export default function Home() {
                         {/* Grid de categorias */}
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                             {categories.map((category) => (
-                                <div
-                                    key={category.id}
-                                    className="p-4 bg-white rounded-lg shadow-sm text-center cursor-pointer hover:shadow-md transition"
-                                >
-                                    <span className="text-lg font-medium text-gray-700">
-                                        {category.name}
-                                    </span>
-                                </div>
+                                <CategoryCard key={category.id} category={category} />
                             ))}
                         </div>
+
 
                         <div className="text-center mt-8">
                             <button

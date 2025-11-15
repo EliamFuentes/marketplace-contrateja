@@ -1,13 +1,14 @@
 export const categories = [
-    { id: 1, name: "Eletricista", icon: "⚡" },
-    { id: 2, name: "Encanador", icon: "🔧" },
-    { id: 3, name: "Diarista", icon: "🧹" },
-    { id: 4, name: "Jardineiro", icon: "🌿" },
-    { id: 5, name: "Pintor", icon: "🎨" },
-    { id: 6, name: "Pedreiro", icon: "🧱" },
-    { id: 7, name: "Montador de Móveis", icon: "🪑" },
-    { id: 8, name: "Técnico em TI", icon: "💻" },
+    { id: 1, name: "Encanador", icon: "Wrench", count: 245 },
+    { id: 2, name: "Eletricista", icon: "Zap", count: 189 },
+    { id: 3, name: "Personal Trainer", icon: "Dumbbell", count: 156 },
+    { id: 4, name: "Diarista", icon: "Sparkles", count: 312 },
+    { id: 5, name: "Jardineiro", icon: "Flower2", count: 98 },
+    { id: 6, name: "Técnico de TI", icon: "Laptop", count: 201 },
+    { id: 7, name: "Professor Particular", icon: "GraduationCap", count: 176 },
+    { id: 8, name: "Pintor", icon: "Paintbrush", count: 134 },
 ];
+
 
 export const services = [
     {
