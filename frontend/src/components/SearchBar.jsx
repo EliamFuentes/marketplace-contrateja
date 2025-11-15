@@ -19,7 +19,6 @@ export default function SearchBar() {
         >
             <div className="flex flex-col md:flex-row gap-3 p-3 bg-white rounded-xl shadow-md border">
 
-                {/* Campo: O que você precisa */}
                 <div className="flex flex-1 items-center gap-2 bg-gray-50 rounded-lg px-4 py-2 border">
                     <Search className="h-5 w-5 text-gray-500" />
                     <input
@@ -31,7 +30,6 @@ export default function SearchBar() {
                     />
                 </div>
 
-                {/* Campo: Onde? */}
                 <div className="flex flex-1 items-center gap-2 bg-gray-50 rounded-lg px-4 py-2 border">
                     <MapPin className="h-5 w-5 text-gray-500" />
                     <input
@@ -43,7 +41,6 @@ export default function SearchBar() {
                     />
                 </div>
 
-                {/* Botão Buscar */}
                 <button
                     type="submit"
                     className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition"

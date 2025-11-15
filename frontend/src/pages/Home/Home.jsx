@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import CategoryCard from "../../components/CategoryCard";
+import ServiceCard from "../../components/ServiceCard";
 import SearchBar from "../../components/SearchBar";
 import { CheckCircle2, Shield, Clock } from "lucide-react";
 
@@ -18,9 +19,6 @@ export default function Home() {
 
             <main className="flex-1">
 
-                {/* ================================
-           HERO SECTION 
-        ================================= */}
                 <section className="relative py-20 md:py-32 bg-gradient-to-b from-blue-50 to-white">
                     <div className="max-w-4xl mx-auto px-4 text-center">
 
@@ -36,10 +34,8 @@ export default function Home() {
 
                         <SearchBar />
 
-                        {/* Features */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
 
-                            {/* Feature 1 */}
                             <div className="flex items-start gap-4 p-6 rounded-lg bg-white shadow-sm">
                                 <div className="h-12 w-12 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
                                     <CheckCircle2 className="h-6 w-6 text-green-600" />
@@ -54,7 +50,6 @@ export default function Home() {
                                 </div>
                             </div>
 
-                            {/* Feature 2 */}
                             <div className="flex items-start gap-4 p-6 rounded-lg bg-white shadow-sm">
                                 <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
                                     <Shield className="h-6 w-6 text-blue-600" />
@@ -69,7 +64,6 @@ export default function Home() {
                                 </div>
                             </div>
 
-                            {/* Feature 3 */}
                             <div className="flex items-start gap-4 p-6 rounded-lg bg-white shadow-sm">
                                 <div className="h-12 w-12 rounded-full bg-yellow-100 flex items-center justify-center flex-shrink-0">
                                     <Clock className="h-6 w-6 text-yellow-600" />
@@ -88,9 +82,6 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* ================================
-           CATEGORIES SECTION 
-        ================================= */}
                 <section className="py-16 bg-gray-50">
                     <div className="max-w-6xl mx-auto px-4">
 
@@ -103,7 +94,6 @@ export default function Home() {
                             </p>
                         </div>
 
-                        {/* Grid de categorias */}
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                             {categories.map((category) => (
                                 <CategoryCard key={category.id} category={category} />
@@ -123,9 +113,6 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* ================================
-           POPULAR SERVICES SECTION 
-        ================================= */}
                 <section className="py-16">
                     <div className="max-w-6xl mx-auto px-4">
 
@@ -138,16 +125,9 @@ export default function Home() {
                             </p>
                         </div>
 
-                        {/* Serviços populares */}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {popularServices.map((service) => (
-                                <div
-                                    key={service.id}
-                                    className="p-5 bg-white rounded-lg shadow-sm hover:shadow-lg transition"
-                                >
-                                    <h3 className="font-semibold text-gray-900">{service.title}</h3>
-                                    <p className="text-sm text-gray-600">{service.description}</p>
-                                </div>
+                                <ServiceCard key={service.id} service={service} />
                             ))}
                         </div>
 
@@ -163,9 +143,6 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* ================================
-           CTA - Profissionais 
-        ================================= */}
                 <section className="py-20 bg-blue-600 text-white">
                     <div className="max-w-4xl mx-auto px-4 text-center">
 
