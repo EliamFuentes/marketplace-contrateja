@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .shadow-card {
+    @apply shadow-[0_1px_2px_rgba(0,0,0,0.08)];
+  }
+
+  .shadow-card-hover {
+    @apply shadow-[0_4px_12px_rgba(0,0,0,0.12)];
+  }
+}

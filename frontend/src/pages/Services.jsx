@@ -21,42 +21,42 @@ function FilterContent({
 }) {
     return (
         <div className="space-y-6">
+
             {/* Buscar */}
             <div className="space-y-2">
-                <label className="font-medium">Buscar</label>
+                <label className="font-medium text-gray-900">Buscar</label>
 
                 <div className="relative">
-                    <Search className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
+                    <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                     <input
                         type="text"
                         placeholder="Buscar serviços..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full pl-10 pr-3 py-2 border rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                        className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
                     />
                 </div>
             </div>
 
             {/* Categoria */}
             <div className="space-y-2">
-                <label className="font-medium">Categoria</label>
+                <label className="font-medium text-gray-900">Categoria</label>
+
                 <select
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value)}
-                    className="w-full border rounded-lg py-2 px-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    className="w-full border border-gray-300 rounded-lg py-2 px-3 bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
                 >
                     <option value="all">Todas as Categorias</option>
                     {categories.map((cat) => (
-                        <option key={cat.id} value={cat.name}>
-                            {cat.name}
-                        </option>
+                        <option key={cat.id} value={cat.name}>{cat.name}</option>
                     ))}
                 </select>
             </div>
 
             {/* Faixa de preço */}
             <div className="space-y-3">
-                <label className="font-medium">Faixa de Preço</label>
+                <label className="font-medium text-gray-900">Faixa de Preço</label>
 
                 <input
                     type="range"
@@ -76,12 +76,12 @@ function FilterContent({
 
             {/* Avaliação mínima */}
             <div className="space-y-2">
-                <label className="font-medium">Avaliação Mínima</label>
+                <label className="font-medium text-gray-900">Avaliação Mínima</label>
 
                 <select
                     value={minRating}
                     onChange={(e) => setMinRating(Number(e.target.value))}
-                    className="w-full border rounded-lg py-2 px-3 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    className="w-full border border-gray-300 rounded-lg py-2 px-3 bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
                 >
                     <option value={0}>Todas as Avaliações</option>
                     <option value={3}>3+ Estrelas</option>
@@ -104,39 +104,30 @@ export default function Services() {
     const [searchTerm, setSearchTerm] = useState(searchParams.get("search") || "");
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
-    // Filtragem
+    // Filtrar serviços
     const filteredServices = services.filter((service) => {
-        const matchesCategory =
-            selectedCategory === "all" || service.category === selectedCategory;
-
-        const matchesPrice =
-            service.price >= priceRange[0] && service.price <= priceRange[1];
-
+        const matchesCategory = selectedCategory === "all" || service.category === selectedCategory;
+        const matchesPrice = service.price >= priceRange[0] && service.price <= priceRange[1];
         const matchesRating = service.rating >= minRating;
-
         const matchesSearch =
             searchTerm.trim() === "" ||
             service.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
             service.description.toLowerCase().includes(searchTerm.toLowerCase());
 
-        return (
-            matchesCategory && matchesPrice && matchesRating && matchesSearch
-        );
+        return matchesCategory && matchesPrice && matchesRating && matchesSearch;
     });
 
-
     return (
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen flex flex-col bg-[#F7F9FC]">
             <Header />
 
-            {/* Conteúdo */}
-            <main className="flex-1 py-10">
-                <div className="max-w-6xl mx-auto px-4">
+            <main className="flex-1 py-8">
+                <div className="container mx-auto px-4">
 
                     {/* Título */}
                     <div className="mb-8 flex items-center justify-between">
                         <div>
-                            <h1 className="text-3xl font-bold text-gray-900">Buscar Serviços</h1>
+                            <h1 className="mb-2 text-3xl font-bold text-gray-900">Buscar Serviços</h1>
                             <p className="text-gray-600">
                                 {filteredServices.length} serviços encontrados
                             </p>
@@ -145,7 +136,7 @@ export default function Services() {
                         {/* Filtros Mobile */}
                         <button
                             onClick={() => setMobileFiltersOpen(true)}
-                            className="md:hidden px-4 py-2 border rounded-lg flex items-center gap-2"
+                            className="md:hidden px-4 py-2 border rounded-lg bg-white shadow-sm flex items-center gap-2"
                         >
                             <SlidersHorizontal className="h-4 w-4" />
                             Filtros
@@ -156,11 +147,12 @@ export default function Services() {
 
                         {/* Sidebar Desktop */}
                         <aside className="hidden md:block w-64 flex-shrink-0">
-                            <div className="sticky top-24 bg-white border rounded-lg p-6 shadow-sm">
-                                <h2 className="font-semibold mb-6 flex items-center">
+                            <div className="sticky top-24 bg-white border rounded-lg p-6 shadow-card">
+                                <h2 className="font-semibold mb-6 flex items-center text-gray-900">
                                     <SlidersHorizontal className="h-5 w-5 mr-2" />
                                     Filtros
                                 </h2>
+
                                 <FilterContent
                                     searchTerm={searchTerm}
                                     setSearchTerm={setSearchTerm}
@@ -175,7 +167,7 @@ export default function Services() {
                             </div>
                         </aside>
 
-                        {/* Lista de Serviços */}
+                        {/* Services Grid — TAMANHO IGUAL AO LOVABLE */}
                         <div className="flex-1">
                             {filteredServices.length > 0 ? (
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -184,9 +176,11 @@ export default function Services() {
                                     ))}
                                 </div>
                             ) : (
-                                <p className="text-center text-gray-600 mt-10">
-                                    Nenhum serviço encontrado com os filtros selecionados.
-                                </p>
+                                <div className="text-center py-16">
+                                    <p className="text-gray-600 text-lg">
+                                        Nenhum serviço encontrado com os filtros selecionados
+                                    </p>
+                                </div>
                             )}
                         </div>
                     </div>
@@ -200,7 +194,7 @@ export default function Services() {
                 <div className="fixed inset-0 bg-black/40 flex justify-start">
                     <div className="w-72 h-full bg-white p-6 shadow-xl animate-slideIn">
                         <div className="flex justify-between items-center mb-6">
-                            <h2 className="font-semibold text-lg">Filtros</h2>
+                            <h2 className="font-semibold text-lg text-gray-900">Filtros</h2>
                             <button
                                 onClick={() => setMobileFiltersOpen(false)}
                                 className="text-gray-500 hover:text-gray-800"
@@ -222,11 +216,7 @@ export default function Services() {
                         />
                     </div>
 
-                    {/* Clique fora para fechar */}
-                    <div
-                        className="flex-1"
-                        onClick={() => setMobileFiltersOpen(false)}
-                    />
+                    <div className="flex-1" onClick={() => setMobileFiltersOpen(false)} />
                 </div>
             )}
         </div>
