@@ -73,12 +73,12 @@ export default function Login() {
 
                         {/* Esqueceu a senha */}
                         <div className="flex justify-end">
-                            <button
-                                type="button"
-                                className="text-sm text-blue-600 hover:underline"
+                            <Link
+                                to="/forgot-password"
+                                className="text-sm text-blue-600 hover:underline font-medium"
                             >
                                 Esqueceu a senha?
-                            </button>
+                            </Link>
                         </div>
 
                         {/* Submit */}
